@@ -8,7 +8,13 @@ mycursor.execute("SELECT Ename FROM Elder WHERE Elder.Eid in(SELECT Eid FROM YCa
 
 for i in mycursor:
     print(i)
-    
+   
+
+
+
+
+You're using code navigation to jump to definitions or references.
+
     
     import mysql.connector
 
