@@ -10,9 +10,9 @@
 DROP TABLE IF EXISTS `approval`;
 
 CREATE TABLE `approval` (
-  `ApprId` int(11) NOT NULL AUTO_INCREMENT,
-  `Eid` int(11) DEFAULT NULL,
-  `Yid` int(11) DEFAULT NULL,
+  `ApprId` int(10) NOT NULL AUTO_INCREMENT,
+  `Eid` int(10) DEFAULT NULL,
+  `Yid` int(10) DEFAULT NULL,
   PRIMARY KEY (`ApprId`),
   KEY `Eid` (`Eid`),
   KEY `Yid` (`Yid`),
@@ -38,12 +38,12 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `elder`;
 
 CREATE TABLE `elder` (
-  `Eid` int(11) NOT NULL AUTO_INCREMENT,
-  `Ename` varchar(50) DEFAULT NULL,
+  `Eid` int(10) NOT NULL AUTO_INCREMENT,
+  `Ename` varchar(40) DEFAULT NULL,
   `Eaddress` varchar(100) DEFAULT NULL,
-  `Ephone` int(11) DEFAULT NULL,
+  `Ephone` int(10) DEFAULT NULL,
   `Eemail` varchar(50) DEFAULT NULL,
-  `Fund` int(11) DEFAULT NULL,
+  `Fund` int(10) DEFAULT NULL,
   PRIMARY KEY (`Eid`),
   KEY `Eemail` (`Eemail`),
   CONSTRAINT `elder_ibfk_1` FOREIGN KEY (`Eemail`) REFERENCES `signup` (`email`) ON DELETE CASCADE
@@ -55,7 +55,7 @@ CREATE TABLE `elder` (
 
 LOCK TABLES `elder` WRITE;
 
-INSERT INTO `elder` VALUES (1,'zzz','Whitefield,Bangalore',1234567890,'zzz@gmail.com',15000),(2,'yyy','Banashankari,Bangalore',1234387475,'yyy@gmail.com',16000),(3,'xxx','M.G Road,Bangalore',1234387375,'xxx@gmail.com',17000),(4,'www','Yelahanka,Bangalore',1434387375,'www@gmail.com',14000),(5,'vvv','Yelahanka,Bangalore',1444387375,'vvv@gmail.com',15000),(7,'uuu','Udupi',1447387375,'uuu@gmail.com',16000),(8,'ttt','Manipal',1447388975,'ttt@gmail.com',16000),(9,'sss','Mysore',1337388975,'sss@gmail.com',15000),(10,'rrr','Ulsoor,Bangalore',1887388975,'rrr@gmail.com',15000),(11,'qqq','Ulsoor,Bangalore',1887388977,'qqq@gmail.com',18000);
+INSERT INTO `elder` VALUES (1,'aaz','HSR,Bangalore',2345678910,'aaz@gmail.com',15000),(2,'yyyy','Naganathapura,Bangalore',0987654321,'yyyy@gmail.com',16000),(3,'xxx','Yelahanka,Bangalore',1234387375,'xxx@gmail.com',17000),(4,'uuu',''M.G Road,Bangalore',1434387375,'uuu@gmail.com',14000),(5,'vvv','Yelahanka,Bangalore',1444387375,'vvv@gmail.com',15000),(7,'uuu','Udupi',1447387375,'uuu@gmail.com',16000),(8,'ttt','Manipal',1447388975,'ttt@gmail.com',16000),(9,'sss','Ulsoor,Bangalore',1337388975,'sss@gmail.com',15000),(10,'eee','Mysore',1887388975,'eee@gmail.com',15000),(11,'nnn','Ulsoor,Bangalore',1887388977,'nnn@gmail.com',18000);
 
 UNLOCK TABLES;
 
@@ -66,10 +66,10 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `elderrating`;
 
 CREATE TABLE `elderrating` (
-  `ERatingId` int(11) NOT NULL AUTO_INCREMENT,
-  `Eid` int(11) DEFAULT NULL,
-  `ERating` int(11) DEFAULT NULL,
-  `EReview` varchar(50) DEFAULT NULL,
+  `ERatingId` int(10) NOT NULL AUTO_INCREMENT,
+  `Eid` int(10) DEFAULT NULL,
+  `ERating` int(10) DEFAULT NULL,
+  `EReview` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`ERatingId`),
   KEY `Eid` (`Eid`),
   CONSTRAINT `elderrating_ibfk_1` FOREIGN KEY (`Eid`) REFERENCES `elder` (`Eid`) ON DELETE CASCADE
@@ -93,8 +93,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `signup`;
 
 CREATE TABLE `signup` (
-  `name` varchar(50) DEFAULT NULL,
-  `email` varchar(50) NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `email` varchar(0) NOT NULL,
   `password` varchar(30) DEFAULT NULL,
   `folk` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`email`)
@@ -106,7 +106,7 @@ CREATE TABLE `signup` (
 
 LOCK TABLES `signup` WRITE;
 
-INSERT INTO `signup` VALUES ('aaa','aaa@gmail.com','1234','youth'),('bbb','bbb@gmail.com','2345','youth'),('ccc','ccc@gmail.com','3456','youth'),('ddd','ddd@gmail.com','4567','youth'),('eee','eee@gmail.com','5678','youth'),('fff','fff@gmail.com','7843','youth'),('ggg','ggg@gmail.com','8437','youth'),('hhh','hhh@gmail.com','8734','youth'),('iii','iii@gmail.com','9843','youth'),('jjj','jjj@gmail.com','4634','youth'),('qqq','qqq@gmail.com','8724','elder'),('rrr','rrr@gmail.com','4784','elder'),('sss','sss@gmail.com','6286','elder'),('ttt','ttt@gmail.com','3472','elder'),('uuu','uuu@gmail.com','8745','elder'),('vvv','vvv@gmail.com','5432','elder'),('www','www@gmail.com','6543','elder'),('xxx','xxx@gmail.com','7654','elder'),('yyy','yyy@gmail.com','8765','elder'),('zzz','zzz@gmail.com','9876','elder');
+INSERT INTO `signup` VALUES ('sss','sss@gmail.com','2634','youth'),('ccc','ccc@gmail.com','2345','youth'),('ddd','ddd@gmail.com','3457','youth'),('eee','eee@gmail.com','4234','youth'),('lll','lll@gmail.com','5678','youth'),('ggg','ggg@gmail.com','7843','youth'),('jjj','jjj@gmail.com','4332','youth'),('hhh','hhh@gmail.com','8734','youth'),('iii','iii@gmail.com','9843','youth'),('jjj','jjj@gmail.com','4634','youth'),('qqq','qqq@gmail.com','8724','elder'),('rrr','rrr@gmail.com','4784','elder'),('sss','sss@gmail.com','6286','elder'),('ttt','ttt@gmail.com','3472','elder'),('uuu','uuu@gmail.com','8745','elder'),('vvv','vvv@gmail.com','5432','elder'),('www','www@gmail.com','6543','elder'),('xxx','xxx@gmail.com','7654','elder'),('yyy','yyy@gmail.com','8765','elder'),('zzz','zzz@gmail.com','9876','elder');
 
 UNLOCK TABLES;
 
